@@ -31,7 +31,7 @@ import {
 // * float longitude = longitude in decimal format (-180.00...180.00)
 
 export class Origin {
-  constructor({ year = 0, month = 0, date = 0, hour = 0, minute = 0, second = 0, latitude = 0.00, longitude = 0.00 } = {}) {
+  constructor({ year = 0, month = 0, date = 0, hour = 0, minute = 0, second = 0, latitude = 0.00, longitude = 0.00, handleUTCDate } = {}) {
 
     this.year = validateYear(year)
     this.month = validateMonth(month)
@@ -58,17 +58,31 @@ export class Origin {
     this.localTimeFormatted = this.localTime.format();
     this.utcTime = moment.tz(this.timeObject, this.timezone.name).utc(); // `.utc()` mutates the original localTime so don't call it on this.localTime itself.
     this.utcTimeFormatted = this.utcTime.format();
-    this.julianDate = getJulianDate({
-      year: this.utcTime.year(),
-      month: this.utcTime.month() + 1,
-      date: this.utcTime.date(),
-      ut: hourTimeToDecimal({ hour: this.utcTime.hours(), minute: this.utcTime.minutes(), second: this.utcTime.seconds() })
-    })
-    this.localSiderealTime = getLocalSiderealTime({
-      jd: this.julianDate,
-      longitude: parseFloat(this.longitude)
-    })
+
+    if (handleUTCDate){
+      this.julianDate = getJulianDate({
+        year: handleUTCDate.year,
+        month: handleUTCDate.month,
+        date: handleUTCDate.day,
+        ut: hourTimeToDecimal({ hour: handleUTCDate.hour, minute: handleUTCDate.minute, second: handleUTCDate.second })
+      })
+      this.localSiderealTime = getLocalSiderealTime({
+        jd: this.julianDate,
+        longitude: parseFloat(this.longitude)
+      })
+    } else{
+      this.julianDate = getJulianDate({
+        year: this.utcTime.year(),
+        month: this.utcTime.month() + 1,
+        date: this.utcTime.date(),
+        ut: hourTimeToDecimal({ hour: this.utcTime.hours(), minute: this.utcTime.minutes(), second: this.utcTime.seconds() })
+      })
+      this.localSiderealTime = getLocalSiderealTime({
+        jd: this.julianDate,
+        longitude: parseFloat(this.longitude)
+      })
+    }
+    
   }
 }
-
 export default Origin
