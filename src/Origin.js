@@ -60,6 +60,7 @@ export class Origin {
     this.utcTimeFormatted = this.utcTime.format();
 
     if (handleUTCDate){
+      console.log("handleUTCDate", handleUTCDate);
       this.julianDate = getJulianDate({
         year: handleUTCDate.year,
         month: handleUTCDate.month,
