@@ -40,6 +40,7 @@ export class Origin {
     this.minute = validateMinute(minute)
     this.latitude = validateLatitude(latitude)
     this.longitude = validateLongitude(longitude)
+    this.myLog = "v: 21:09";
 
     this.timeObject = {
       year: year,
@@ -51,7 +52,7 @@ export class Origin {
       millisecond: 0
     }
 
-    console.log("v: 19:59");
+    console.log("v: 21:09");
 
     this.latitude = latitude
     this.longitude = longitude

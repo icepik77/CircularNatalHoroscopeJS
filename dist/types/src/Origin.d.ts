@@ -17,6 +17,7 @@ export class Origin {
     minute: any;
     latitude: number;
     longitude: number;
+    myLog: string;
     timeObject: {
         year: number;
         month: number;

@@ -182,6 +182,9 @@ class DemoApp {
     }
     const timestamp = moment(`${this.dateInput.value} ${this.timeInput.value}`);
 
+
+    
+
     const origin = new Origin({
       year: timestamp.year(),
       month: timestamp.month(),
@@ -190,7 +193,7 @@ class DemoApp {
       minute: timestamp.minutes(),
       latitude: this.latitudeInput.value,
       longitude: this.longitudeInput.value,
-      handleUTCDate: handleUTC
+     
     });
 
     const customOrbs = {

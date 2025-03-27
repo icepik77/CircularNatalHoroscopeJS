@@ -13,6 +13,7 @@
     "url": "https://github.com/0xStarcat/CircularNatalHoroscopeJS.git"
   },
   "scripts": {
+    "start": "node demo/dist/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "webpack --mode=production && tsc",
