@@ -58,9 +58,9 @@ export class Origin {
     this.localTimeFormatted = this.localTime.format();
     this.utcTime = moment.tz(this.timeObject, this.timezone.name).utc(); // `.utc()` mutates the original localTime so don't call it on this.localTime itself.
     this.utcTimeFormatted = this.utcTime.format();
-
+    console.log("handleUTCDate", handleUTCDate);
     if (handleUTCDate){
-      console.log("handleUTCDate", handleUTCDate);
+      
       this.julianDate = getJulianDate({
         year: handleUTCDate.year,
         month: handleUTCDate.month,
