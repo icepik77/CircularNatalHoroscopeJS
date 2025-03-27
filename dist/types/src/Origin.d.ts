@@ -8,14 +8,7 @@ export class Origin {
         second?: number;
         latitude?: number;
         longitude?: number;
-        handleUTCDate?: { 
-            year?: number; 
-            month?: number; 
-            date?: number; 
-            hour?: number; 
-            minute?: number; 
-            second?: number; 
-        };
+        handleUTCDate: any;
     });
     year: any;
     month: any;
