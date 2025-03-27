@@ -181,6 +181,7 @@ class DemoApp {
       e.preventDefault();
     }
     const timestamp = moment(`${this.dateInput.value} ${this.timeInput.value}`);
+
     const origin = new Origin({
       year: timestamp.year(),
       month: timestamp.month(),
