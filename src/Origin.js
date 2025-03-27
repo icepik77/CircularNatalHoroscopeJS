@@ -63,7 +63,7 @@ export class Origin {
       this.julianDate = getJulianDate({
         year: handleUTCDate.year,
         month: handleUTCDate.month,
-        date: handleUTCDate.day,
+        date: handleUTCDate.date,
         ut: hourTimeToDecimal({ hour: handleUTCDate.hour, minute: handleUTCDate.minute, second: handleUTCDate.second })
       })
       this.localSiderealTime = getLocalSiderealTime({

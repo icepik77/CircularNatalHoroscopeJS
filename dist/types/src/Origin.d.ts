@@ -1,5 +1,5 @@
 export class Origin {
-    constructor({ year, month, date, hour, minute, second, latitude, longitude }?: {
+    constructor({ year, month, date, hour, minute, second, latitude, longitude, handleUTCDate }?: {
         year?: number;
         month?: number;
         date?: number;
@@ -8,6 +8,14 @@ export class Origin {
         second?: number;
         latitude?: number;
         longitude?: number;
+        handleUTCDate?: { 
+            year?: number; 
+            month?: number; 
+            date?: number; 
+            hour?: number; 
+            minute?: number; 
+            second?: number; 
+        };
     });
     year: any;
     month: any;
