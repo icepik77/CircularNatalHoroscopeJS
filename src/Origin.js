@@ -51,6 +51,8 @@ export class Origin {
       millisecond: 0
     }
 
+    console.log("v: 19:59");
+
     this.latitude = latitude
     this.longitude = longitude
     this.timezone = moment.tz.zone(tzlookup(this.latitude, this.longitude));

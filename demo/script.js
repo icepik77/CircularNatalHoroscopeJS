@@ -190,6 +190,7 @@ class DemoApp {
       minute: timestamp.minutes(),
       latitude: this.latitudeInput.value,
       longitude: this.longitudeInput.value,
+      handleUTCDate: handleUTC
     });
 
     const customOrbs = {
