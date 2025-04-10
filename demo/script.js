@@ -196,6 +196,8 @@ class DemoApp {
      
     });
 
+    console.log("origin.myLog",origin.myLog)
+
     const customOrbs = {
       conjunction: document.querySelector("#conjunction-orb").value,
       opposition: document.querySelector("#opposition-orb").value,

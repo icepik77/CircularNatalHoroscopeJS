@@ -52,8 +52,6 @@ export class Origin {
       millisecond: 0
     }
 
-    console.log("v: 21:09");
-
     this.latitude = latitude
     this.longitude = longitude
     this.timezone = moment.tz.zone(tzlookup(this.latitude, this.longitude));
@@ -61,10 +59,9 @@ export class Origin {
     this.localTimeFormatted = this.localTime.format();
     this.utcTime = moment.tz(this.timeObject, this.timezone.name).utc(); // `.utc()` mutates the original localTime so don't call it on this.localTime itself.
     this.utcTimeFormatted = this.utcTime.format();
-    console.log("handleUTCDate", handleUTCDate);
+    
     if (handleUTCDate){
       this.myLog = "handleUTCDate";
-      console.log("here", handleUTCDate);
       this.julianDate = getJulianDate({
         year: handleUTCDate.year,
         month: handleUTCDate.month,
@@ -76,7 +73,6 @@ export class Origin {
         longitude: parseFloat(this.longitude)
       })
     } else{
-      console.log("here not handleUTCDate", handleUTCDate);
       this.myLog = "here not handleUTCDate";
       this.julianDate = getJulianDate({
         year: this.utcTime.year(),
